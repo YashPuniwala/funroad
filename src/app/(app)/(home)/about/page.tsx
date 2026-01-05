@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import React from "react";
 import { cn } from "@/lib/utils";
 import { Poppins } from "next/font/google";
@@ -7,6 +8,39 @@ const poppins = Poppins({
   subsets: ["latin"],
   weight: ["700"],
 });
+
+export const generateMetadata = async (): Promise<Metadata> => {
+  return {
+    title: "About Us | funroad - Multitenant E-commerce Platform",
+    description: "Learn about funroad's mission to democratize e-commerce through our revolutionary multitenant platform designed for global creators.",
+    keywords: ["about funroad", "e-commerce", "multitenant", "marketplace", "digital commerce", "global creators", "funroad", "our mission", "our vision"],
+    openGraph: {
+      type: "website",
+      locale: "en_US",
+      url: `${process.env.NEXT_PUBLIC_APP_URL || "https://funroad.com"}/about`,
+      title: "About Us | funroad - Multitenant E-commerce Platform",
+      description: "Learn about funroad's mission to democratize e-commerce through our revolutionary multitenant platform.",
+      siteName: "funroad",
+      images: [
+        {
+          url: process.env.NEXT_PUBLIC_APP_URL ? `${process.env.NEXT_PUBLIC_APP_URL}/og-image-about.jpg` : "/og-image-about.jpg",
+          width: 1200,
+          height: 630,
+          alt: "funroad - About Us",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "About Us | funroad - Multitenant E-commerce Platform",
+      description: "Learn about funroad's mission to democratize e-commerce through our revolutionary multitenant platform.",
+      images: [process.env.NEXT_PUBLIC_APP_URL ? `${process.env.NEXT_PUBLIC_APP_URL}/og-image-about.jpg` : "/og-image-about.jpg"],
+    },
+    alternates: {
+      canonical: `${process.env.NEXT_PUBLIC_APP_URL || "https://funroad.com"}/about`,
+    },
+  };
+};
 
 export default function AboutPage() {
   return (

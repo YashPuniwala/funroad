@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import React from "react";
 import { cn } from "@/lib/utils";
 import { Poppins } from "next/font/google";
@@ -8,6 +9,39 @@ const poppins = Poppins({
   subsets: ["latin"],
   weight: ["700"],
 });
+
+export const generateMetadata = async (): Promise<Metadata> => {
+  return {
+    title: "Pricing | funroad - Transparent E-commerce Plans",
+    description: "Choose the perfect plan for your e-commerce business. From Founder to Network, our transparent pricing scales with your ambition.",
+    keywords: ["pricing", "e-commerce plans", "multitenant", "marketplace", "online store", "digital commerce", "funroad pricing", "transparent pricing", "Founder plan", "Scale plan", "Network plan"],
+    openGraph: {
+      type: "website",
+      locale: "en_US",
+      url: `${process.env.NEXT_PUBLIC_APP_URL || "https://funroad.com"}/pricing`,
+      title: "Pricing | funroad - Transparent E-commerce Plans",
+      description: "Choose the perfect plan for your e-commerce business with our transparent pricing.",
+      siteName: "funroad",
+      images: [
+        {
+          url: process.env.NEXT_PUBLIC_APP_URL ? `${process.env.NEXT_PUBLIC_APP_URL}/og-image-pricing.jpg` : "/og-image-pricing.jpg",
+          width: 1200,
+          height: 630,
+          alt: "funroad - Pricing Plans",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "Pricing | funroad - Transparent E-commerce Plans",
+      description: "Choose the perfect plan for your e-commerce business with our transparent pricing.",
+      images: [process.env.NEXT_PUBLIC_APP_URL ? `${process.env.NEXT_PUBLIC_APP_URL}/og-image-pricing.jpg` : "/og-image-pricing.jpg"],
+    },
+    alternates: {
+      canonical: `${process.env.NEXT_PUBLIC_APP_URL || "https://funroad.com"}/pricing`,
+    },
+  };
+};
 
 const plans = [
   {

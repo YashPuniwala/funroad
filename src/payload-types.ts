@@ -177,6 +177,10 @@ export interface Tenant {
   slug: string;
   image?: (string | null) | Media;
   /**
+   * Description of the store that appears in metadata
+   */
+  description?: string | null;
+  /**
    * Stripe Account ID associated with your shop
    */
   stripeAccountId: string;
@@ -511,6 +515,7 @@ export interface TenantsSelect<T extends boolean = true> {
   name?: T;
   slug?: T;
   image?: T;
+  description?: T;
   stripeAccountId?: T;
   stripeDetailsSubmitted?: T;
   updatedAt?: T;

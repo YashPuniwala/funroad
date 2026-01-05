@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import React from "react";
 import { cn } from "@/lib/utils";
 import { Poppins } from "next/font/google";
@@ -10,6 +11,39 @@ const poppins = Poppins({
   subsets: ["latin"],
   weight: ["700"],
 });
+
+export const generateMetadata = async (): Promise<Metadata> => {
+  return {
+    title: "Contact Us | funroad - Get in Touch",
+    description: "Get in touch with the funroad team. We're here to help you with your e-commerce needs and answer any questions about our multitenant platform.",
+    keywords: ["contact funroad", "e-commerce support", "multitenant", "marketplace", "online store", "digital commerce", "funroad contact", "support", "get in touch"],
+    openGraph: {
+      type: "website",
+      locale: "en_US",
+      url: `${process.env.NEXT_PUBLIC_APP_URL || "https://funroad.com"}/contact`,
+      title: "Contact Us | funroad - Get in Touch",
+      description: "Get in touch with the funroad team for support and questions.",
+      siteName: "funroad",
+      images: [
+        {
+          url: process.env.NEXT_PUBLIC_APP_URL ? `${process.env.NEXT_PUBLIC_APP_URL}/og-image-contact.jpg` : "/og-image-contact.jpg",
+          width: 1200,
+          height: 630,
+          alt: "funroad - Contact Us",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "Contact Us | funroad - Get in Touch",
+      description: "Get in touch with the funroad team for support and questions.",
+      images: [process.env.NEXT_PUBLIC_APP_URL ? `${process.env.NEXT_PUBLIC_APP_URL}/og-image-contact.jpg` : "/og-image-contact.jpg"],
+    },
+    alternates: {
+      canonical: `${process.env.NEXT_PUBLIC_APP_URL || "https://funroad.com"}/contact`,
+    },
+  };
+};
 
 export default function ContactPage() {
   return (

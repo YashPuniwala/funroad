@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import React from "react";
 import { cn } from "@/lib/utils";
 import { Poppins } from "next/font/google";
@@ -7,6 +8,39 @@ const poppins = Poppins({
   subsets: ["latin"],
   weight: ["700"],
 });
+
+export const generateMetadata = async (): Promise<Metadata> => {
+  return {
+    title: "Features | funroad - Advanced Multitenant E-commerce Platform",
+    description: "Explore funroad's advanced features including hyper-isolated multi-tenancy, global CDN edge rendering, headless content management, and more.",
+    keywords: ["e-commerce features", "multitenant", "marketplace", "online store", "digital commerce", "global creators", "funroad", "advanced features", "hyper-isolated multi-tenancy", "global CDN"],
+    openGraph: {
+      type: "website",
+      locale: "en_US",
+      url: `${process.env.NEXT_PUBLIC_APP_URL || "https://funroad.com"}/features`,
+      title: "Features | funroad - Advanced Multitenant E-commerce Platform",
+      description: "Explore funroad's advanced features for modern e-commerce solutions.",
+      siteName: "funroad",
+      images: [
+        {
+          url: process.env.NEXT_PUBLIC_APP_URL ? `${process.env.NEXT_PUBLIC_APP_URL}/og-image-features.jpg` : "/og-image-features.jpg",
+          width: 1200,
+          height: 630,
+          alt: "funroad - Features",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "Features | funroad - Advanced Multitenant E-commerce Platform",
+      description: "Explore funroad's advanced features for modern e-commerce solutions.",
+      images: [process.env.NEXT_PUBLIC_APP_URL ? `${process.env.NEXT_PUBLIC_APP_URL}/og-image-features.jpg` : "/og-image-features.jpg"],
+    },
+    alternates: {
+      canonical: `${process.env.NEXT_PUBLIC_APP_URL || "https://funroad.com"}/features`,
+    },
+  };
+};
 
 const features = [
   {

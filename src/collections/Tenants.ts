@@ -40,6 +40,14 @@ export const Tenants: CollectionConfig = {
       relationTo: "media",
     },
     {
+      name: "description",
+      type: "text",
+      label: "Store Description",
+      admin: {
+        description: "Description of the store that appears in metadata",
+      },
+    },
+    {
       name: "stripeAccountId",
       type: "text",
       required: true,

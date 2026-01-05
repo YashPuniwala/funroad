@@ -65,7 +65,7 @@ export const Navbar = () => {
         user={session.data?.user || null}
       />
 
-      <div className=" items-center gap-4 hidden lg:flex">
+      <div className="items-center gap-4 hidden lg:flex">
         {navbarItems.map((item) => (
           <NavbarItem
             key={item.href}
